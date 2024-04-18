@@ -113,23 +113,25 @@ if (isset($_POST['submit'])) {
     </form>
 
     <!-- Skrip JavaScript untuk menampilkan password -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        // Ambil elemen checkbox dan password
-        var checkbox = document.getElementById("showPassword");
-        var password = document.getElementById("password");
+        $(document).ready(function() {
+            // Ambil elemen checkbox dan password
+            var checkbox = $("#showPassword");
+            var password = $("#password");
 
-        // Ketika status checkbox berubah
-        checkbox.addEventListener('change', function() {
-            // Jika checkbox dicentang, tampilkan password
-            if (this.checked) {
-                password.type = "text";
-            } else {
-                // Jika checkbox tidak dicentang, sembunyikan password
-                password.type = "password";
-            }
+            // Ketika status checkbox berubah
+            checkbox.change(function() {
+                // Jika checkbox dicentang, tampilkan password
+                if (this.checked) {
+                    password.attr("type", "text");
+                } else {
+                    // Jika checkbox tidak dicentang, sembunyikan password
+                    password.attr("type", "password");
+                }
+            });
         });
     </script>
 </body>
 
 </html>
-
